@@ -54,6 +54,7 @@ export const TaxInvoiceDetails = () => {
   return (
     <PageContainer>
       <PageHeader
+        className="print:hidden"
         title={`Invoice ${invoice.invoiceNumber}`}
         description="Official UAE VAT tax invoice layout"
         actions={
@@ -74,10 +75,10 @@ export const TaxInvoiceDetails = () => {
       />
 
       {/* Official AL BASEM Reference Invoice Document */}
-      <div className="overflow-x-auto pb-6">
-        <div className="bg-white p-8 sm:p-12 rounded-3xl border border-slate-200/80 shadow-md max-w-4xl mx-auto space-y-8 font-sans text-slate-800 print:shadow-none print:border-none print:p-0 print:m-0 print:max-w-none min-w-[700px]">
+      <div className="overflow-x-auto pb-6 print:overflow-visible print:p-0 print:m-0">
+        <div className="invoice-print-container bg-white p-8 sm:p-12 rounded-3xl border border-slate-200/80 shadow-md max-w-4xl mx-auto space-y-8 font-sans text-slate-800 print:shadow-none print:border-none print:p-0 print:m-0 print:max-w-none print:min-w-0 print:w-full print:rounded-none min-w-[700px]">
           {/* Top Section */}
-          <div className="flex justify-between items-start border-b border-slate-100 pb-8">
+          <div className="invoice-header-section flex justify-between items-start border-b border-slate-100 pb-8 print:pb-6">
             {/* Left: Logo + Seller Company Info */}
             <div className="space-y-3 max-w-md">
               <img
@@ -113,7 +114,7 @@ export const TaxInvoiceDetails = () => {
           </div>
 
           {/* Customer (Bill To) & Invoice Metadata Section */}
-          <div className="grid grid-cols-2 gap-8 text-xs pt-2">
+          <div className="invoice-meta-section grid grid-cols-2 gap-8 text-xs pt-2">
             {/* Left: Bill To */}
             <div className="space-y-1">
               <span className="text-slate-500 font-semibold block mb-1">Bill To</span>
@@ -144,8 +145,8 @@ export const TaxInvoiceDetails = () => {
           </div>
 
           {/* Itemized Table - Reference Dark Header Design */}
-          <div className="pt-2">
-            <table className="w-full text-left text-xs border-collapse">
+          <div className="invoice-table-section pt-2">
+            <table className="invoice-table w-full text-left text-xs border-collapse">
               <thead>
                 <tr className="bg-slate-800 text-white text-[11px] font-semibold">
                   <th className="py-2.5 px-3 w-8 text-center">#</th>
@@ -182,7 +183,7 @@ export const TaxInvoiceDetails = () => {
           </div>
 
           {/* Financial Totals Summary - Right Aligned Matching Reference */}
-          <div className="flex justify-end pt-4">
+          <div className="invoice-totals-section flex justify-end pt-4">
             <div className="w-80 text-xs space-y-2 font-medium">
               <div className="flex justify-between py-1 border-b border-slate-100">
                 <span className="text-slate-600">Sub Total</span>
@@ -215,7 +216,7 @@ export const TaxInvoiceDetails = () => {
           </div>
 
           {/* Notes Section - Bottom Left */}
-          <div className="pt-8 border-t border-slate-100 space-y-1 text-xs text-slate-600">
+          <div className="invoice-notes-section pt-8 border-t border-slate-100 space-y-1 text-xs text-slate-600 print:pt-6">
             <span className="font-bold text-slate-900 block">Notes</span>
             <p className="font-normal">{invoice.notes || defaultNotes}</p>
           </div>

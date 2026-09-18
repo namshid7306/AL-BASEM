@@ -1,1 +1,97 @@
 @import "tailwindcss";
+
+@media print {
+  @page {
+    size: auto;
+    margin: 12mm 15mm;
+  }
+
+  *,
+  *::before,
+  *::after {
+    text-shadow: none !important;
+  }
+
+  html,
+  body {
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    color: #1e293b !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    min-height: 0 !important;
+    height: auto !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Hide application chrome and non-printable navigation elements */
+  .no-print,
+  .print\:hidden,
+  header,
+  aside,
+  nav,
+  footer,
+  [role="dialog"],
+  .modal-overlay,
+  .toaster {
+    display: none !important;
+  }
+
+  /* Reset layout offsets */
+  .lg\:ml-64 {
+    margin-left: 0 !important;
+  }
+
+  .pb-20,
+  .lg\:pb-8 {
+    padding-bottom: 0 !important;
+  }
+
+  /* Invoice Print Container */
+  .invoice-print-container {
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    background: #ffffff !important;
+  }
+
+  /* Page Break & Flow Handling */
+  .invoice-header-section,
+  .invoice-meta-section,
+  .invoice-totals-section,
+  .invoice-notes-section {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  .invoice-table-section {
+    break-inside: auto !important;
+  }
+
+  .invoice-table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    break-inside: auto !important;
+  }
+
+  .invoice-table thead {
+    display: table-header-group !important;
+  }
+
+  .invoice-table tr {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  .invoice-table th,
+  .invoice-table td {
+    padding: 6pt 8pt !important;
+  }
+}

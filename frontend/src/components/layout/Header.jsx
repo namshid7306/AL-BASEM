@@ -7,7 +7,6 @@ import {
   User,
   LogOut,
   X,
-  Menu,
   Users,
   FileText,
   Receipt,
@@ -17,7 +16,7 @@ import { useAuth } from "../../context/AuthContext";
 import { notificationApi } from "../../services/notificationApi";
 import { searchRecords, emptySearchResults } from "../../utils/globalSearch";
 
-export const Header = ({ onToggleMobileNav, isMobileNavOpen }) => {
+export const Header = () => {
   const { user, logout } = useAuth();
   const location = useLocation();
   const isDashboard = location.pathname === "/" || location.pathname === "/dashboard";
@@ -97,26 +96,10 @@ export const Header = ({ onToggleMobileNav, isMobileNavOpen }) => {
     searchResults.expenses.length > 0;
 
   return (
-    <header className="sticky top-0 z-20 bg-white border-b border-slate-200 px-4 md:px-6 lg:px-8">
+    <header className="sticky top-0 z-20 bg-white border-b border-slate-200 px-4 md:px-6 lg:px-8 print:hidden">
       <div className="h-16 flex items-center justify-between gap-4">
-        {/* =========================
-            LEFT SIDE: Hamburger on mobile, empty on desktop
-        ========================== */}
-        <div className="flex items-center gap-3">
-          {/* Mobile Hamburger Button */}
-          <button
-            type="button"
-            onClick={onToggleMobileNav}
-            className="lg:hidden p-2 rounded-xl text-slate-600 hover:bg-slate-100 transition cursor-pointer"
-            aria-label="Toggle mobile menu"
-          >
-            {isMobileNavOpen ? (
-              <X className="w-6 h-6" />
-            ) : (
-              <Menu className="w-6 h-6" />
-            )}
-          </button>
-        </div>
+        {/* Left container spacer */}
+        <div className="flex items-center gap-3" />
 
         {/* =========================
             RIGHT SIDE: Search, Notifications, User

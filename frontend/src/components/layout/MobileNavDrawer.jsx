@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import { X, LogOut } from "lucide-react";
+import { X } from "lucide-react";
 import { useAuth } from "../../context/AuthContext";
 import { navItems } from "../../constants/navigation";
 
 export const MobileNavDrawer = ({ isOpen, onClose }) => {
-  const { logout, user } = useAuth();
+  const { user } = useAuth();
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -68,32 +68,20 @@ export const MobileNavDrawer = ({ isOpen, onClose }) => {
           })}
         </nav>
 
-        {/* User Profile & Logout Footer */}
+        {/* User Profile Footer */}
         <div className="p-4 border-t border-slate-800/80 bg-slate-950/60 mt-auto shrink-0">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2.5 min-w-0">
-              <div className="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center text-xs font-bold shadow-sm shrink-0">
-                {user?.avatar || "AB"}
-              </div>
-              <div className="truncate min-w-0">
-                <p className="text-xs font-bold text-white truncate">
-                  {user?.name || "Admin"}
-                </p>
-                <p className="text-[10px] text-slate-400 truncate">
-                  {user?.email || ""}
-                </p>
-              </div>
+          <div className="flex items-center gap-2.5 min-w-0">
+            <div className="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center text-xs font-bold shadow-sm shrink-0">
+              {user?.avatar || "AB"}
             </div>
-            <button
-              onClick={() => {
-                onClose();
-                logout();
-              }}
-              title="Logout"
-              className="p-2 text-slate-400 hover:text-rose-400 hover:bg-slate-800 rounded-lg transition cursor-pointer shrink-0 ml-1"
-            >
-              <LogOut className="w-4 h-4" />
-            </button>
+            <div className="truncate min-w-0">
+              <p className="text-xs font-bold text-white truncate">
+                {user?.name || "Admin"}
+              </p>
+              <p className="text-[10px] text-slate-400 truncate">
+                {user?.email || ""}
+              </p>
+            </div>
           </div>
         </div>
       </aside>

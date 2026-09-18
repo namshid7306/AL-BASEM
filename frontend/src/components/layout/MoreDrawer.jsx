@@ -10,13 +10,12 @@ import {
   Bell,
   Settings,
   User,
-  LogOut,
   X
 } from "lucide-react";
 import { useAuth } from "../../context/AuthContext";
 
 export const MoreDrawer = ({ isOpen, onClose }) => {
-  const { logout, user } = useAuth();
+  const { user } = useAuth();
 
   if (!isOpen) return null;
 
@@ -72,17 +71,6 @@ export const MoreDrawer = ({ isOpen, onClose }) => {
             );
           })}
         </div>
-
-        <button
-          onClick={() => {
-            onClose();
-            logout();
-          }}
-          className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-rose-50 text-rose-700 font-bold text-xs rounded-xl border border-rose-200 mt-2 cursor-pointer"
-        >
-          <LogOut className="w-4 h-4" />
-          <span>Logout</span>
-        </button>
       </div>
     </div>
   );

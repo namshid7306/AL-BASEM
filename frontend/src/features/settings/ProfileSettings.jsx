@@ -1,6 +1,6 @@
 import React from "react";
 import { useAuth } from "../../context/AuthContext";
-import { Mail, Shield, Phone } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 import { PageContainer } from "../../components/common/PageContainer";
 import { PageHeader } from "../../components/common/PageHeader";
 
@@ -41,13 +41,6 @@ export const ProfileSettings = () => {
               <Phone className="w-4 h-4 text-slate-400" /> Phone Contact
             </span>
             <span className="font-bold text-slate-900">{user?.phone || "+971 50 123 4567"}</span>
-          </div>
-
-          <div className="flex items-center justify-between p-3.5 bg-slate-50 rounded-2xl border border-slate-100">
-            <span className="text-slate-500 font-medium flex items-center gap-2">
-              <Shield className="w-4 h-4 text-slate-400" /> Authentication Token
-            </span>
-            <span className="font-mono text-emerald-600 font-bold">JWT Active (Bearer)</span>
           </div>
         </div>
       </div>

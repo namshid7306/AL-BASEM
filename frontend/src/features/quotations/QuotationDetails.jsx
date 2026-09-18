@@ -54,6 +54,7 @@ export const QuotationDetails = () => {
   return (
     <PageContainer>
       <PageHeader
+        className="print:hidden"
         title={`Quotation ${quotation.quoteNumber}`}
         description={`Subject: ${quotation.subject}`}
         actions={
@@ -74,8 +75,8 @@ export const QuotationDetails = () => {
       />
 
       {/* Printable Quote Sheet matching official branding */}
-      <div className="overflow-x-auto pb-6">
-        <div className="bg-white p-8 sm:p-12 rounded-3xl border border-slate-200/80 shadow-md max-w-4xl mx-auto space-y-8 text-slate-800 print:shadow-none print:border-none print:p-0 print:m-0 min-w-[700px]">
+      <div className="overflow-x-auto pb-6 print:overflow-visible print:p-0 print:m-0">
+        <div className="invoice-print-container bg-white p-8 sm:p-12 rounded-3xl border border-slate-200/80 shadow-md max-w-4xl mx-auto space-y-8 text-slate-800 print:shadow-none print:border-none print:p-0 print:m-0 print:max-w-none print:min-w-0 print:w-full print:rounded-none min-w-[700px]">
           {/* Header */}
           <div className="flex justify-between items-start border-b border-slate-100 pb-6">
             <div className="space-y-2">
